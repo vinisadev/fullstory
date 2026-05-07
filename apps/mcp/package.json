@@ -1,0 +1,51 @@
+{
+  "name": "fullstory-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server for the Full Story issue tracker. Exposes the REST API as MCP tools for Claude Code, Cursor, Cline, and other agent CLIs.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "fullstory",
+    "issue-tracker",
+    "claude",
+    "cursor",
+    "cline",
+    "ai-agents"
+  ],
+  "homepage": "https://github.com/vinisadev/fullstory#readme",
+  "bugs": "https://github.com/vinisadev/fullstory/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinisadev/fullstory.git",
+    "directory": "apps/mcp"
+  },
+  "license": "MIT",
+  "author": "Vincenzo Fehring",
+  "type": "module",
+  "bin": {
+    "fullstory-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build src/index.ts --target=node --outdir=dist",
+    "start": "node dist/index.js",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "prepublishOnly": "bun run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "@types/node": "^20",
+    "typescript": "^5"
+  }
+}
