@@ -22,6 +22,34 @@
       "when": 1778138632161,
       "tag": "0002_silky_vargas",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1778141647410,
+      "tag": "0003_groovy_banshee",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1778141864209,
+      "tag": "0004_classy_human_fly",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1778142031090,
+      "tag": "0005_even_mother_askani",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1778142259631,
+      "tag": "0006_nosy_squadron_supreme",
+      "breakpoints": true
     }
   ]
 }

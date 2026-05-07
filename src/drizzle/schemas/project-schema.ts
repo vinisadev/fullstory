@@ -1,6 +1,7 @@
 import { relations } from "drizzle-orm";
 import {
   index,
+  integer,
   pgTable,
   text,
   timestamp,
@@ -19,6 +20,9 @@ export const project = pgTable(
     name: text("name").notNull(),
     description: text("description"),
     leadId: text("lead_id").references(() => user.id, { onDelete: "set null" }),
+    // Highest issue number used in this project. Incremented atomically by
+    // nextIssueNumber() in src/lib/issues.ts to derive PROJ-N keys.
+    lastIssueNumber: integer("last_issue_number").default(0).notNull(),
     archivedAt: timestamp("archived_at"),
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
