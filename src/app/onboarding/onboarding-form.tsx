@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -30,7 +31,11 @@ function slugify(input: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-export function OnboardingForm() {
+export function OnboardingForm({
+  hasExistingWorkspaces = false,
+}: {
+  hasExistingWorkspaces?: boolean;
+}) {
   const router = useRouter();
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
@@ -66,7 +71,9 @@ export function OnboardingForm() {
     <Card className="w-full max-w-sm">
       <CardHeader>
         <CardTitle role="heading" aria-level={1}>
-          Create your workspace
+          {hasExistingWorkspaces
+            ? "Create a workspace"
+            : "Create your workspace"}
         </CardTitle>
         <CardDescription>
           A workspace is where your team's projects and issues live.
@@ -109,7 +116,7 @@ export function OnboardingForm() {
             )}
           </FieldGroup>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex flex-col gap-2">
           <Button
             type="submit"
             disabled={pending || !name || !slug}
@@ -117,6 +124,11 @@ export function OnboardingForm() {
           >
             {pending ? "Creating..." : "Create workspace"}
           </Button>
+          {hasExistingWorkspaces && (
+            <Button asChild variant="ghost" className="w-full">
+              <Link href="/">Cancel</Link>
+            </Button>
+          )}
         </CardFooter>
       </form>
     </Card>
